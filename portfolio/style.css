@@ -136,6 +136,55 @@ body {
     background-color: #0056b3;
 }
 
+/* Button group */
+.btn {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.btn a {
+    text-decoration: none;
+}
+
+/* Contact Me button - gray */
+.btn-contact {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #6b6b6b;
+    color: #ffffff;
+}
+
+.btn-contact:hover {
+    background-color: #4a4a4a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Download CV button - dark */
+.btn-download {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #1f1e1e;
+    color: #ffffff;
+}
+
+.btn-download:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
 /* Image section styling with the wave effect */
 .image::before {
     content: '';
