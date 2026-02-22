@@ -1,0 +1,603 @@
+/* General Reset */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+} 
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* Header */
+.header {
+
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* keeps logo left, menu right */
+  align-items: center;
+  padding: 20px 40px;
+  background: #111;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; /* subtle shadow for depth */
+}
+
+.logo {
+
+  width: 30%;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  color: #fff;
+  white-space: nowrap; /* keeps the logo text in one line */
+}
+
+.menu {
+  margin-left: auto; /* pushes menu to the far right */
+}
+/* .menu ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  width: 100%;
+} */
+
+.menu ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s;
+  /* float: right; */
+}
+
+.menu ul li a:hover {
+  color: #00bcd4;
+}
+
+/* Hamburger button */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+
+
+/* About Me section styling */
+.aboutMe {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff; /* Main background color */
+    color: #333;
+    padding: 20px 0;
+    min-height: 900px;
+}
+
+.information {
+    flex: 1;
+    max-width: 600px;
+    padding: 0 50px;
+}
+
+.information .description h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #212121;
+}
+
+.information .description p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.btn button {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 25px;
+    margin-right: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn button:first-child {
+    background-color: #3a3a39; /* Yellow color from the image */
+    color: #ffffff;
+}
+
+.btn button:last-child {
+    background-color: #1f1e1e;
+    color: #fffefe;
+    border: 1px solid #ddd;
+}
+
+.btn button:hover {
+    opacity: 0.85;
+    background-color: #0056b3;
+}
+
+/* Image section styling with the wave effect */
+.image::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: 300px;
+    bottom: 100px;
+    left: 0;
+    background-color: #5f5c5667; /* Yellow background color */
+    /* Adjust this clip-path to create the desired organic shape */
+    /* This uses a more complex ellipse, you might need to fine-tune it */
+    clip-path: ellipse(50% 60% at 70% 80%);
+    /* You could also try a polygon for more control, but it's more complex */
+    /* clip-path: polygon(40% 30%, 100% 0%, 100% 75%, 75% 100%, 25% 100%, 0% 75%); */
+    z-index: 1;
+    transition: 0.5s;
+}
+
+/* .image::before:hover{
+   background-color: #c2c0be67;
+   transform: scaleX(-100px);
+} */
+
+.image img {
+    /* ... existing styles ... */
+    width: 500px;
+    height: 300px;
+    position: relative; /* Ensure the image is above the pseudo-element */
+    z-index: 2;
+    /* Adjust positioning of the image to fit within the blob */
+    transform: translateX(90%); /* Example: move image slightly to the right */
+    /* You might need to adjust max-width or width to ensure it fits */
+    max-width: 50%;
+    /* Remove border-radius: 50%; if you want a natural image shape like in the example */
+    border-radius: 20px; /* Remove circular shape if the image is not meant to be circular */
+    /* clip-path: polygon(40% 30%, 100% 0%, 100% 75%, 75% 100%, 25% 100%, 0% 75%); */
+     /* clip-path: ellipse(30% 100% at 50% 60%); */
+}
+
+/* Add an additional pseudo-element for the bottom-left blob */
+.image::after {
+    content: '';
+    position: absolute;
+    bottom: -50px; /* Adjust as needed */
+    left: -50px; /* Adjust as needed */
+    width: 200px; /* Size of the bottom blob */
+    height: 200px; /* Size of the bottom blob */
+    background-color: #8b8b88; /* Yellow color */
+    clip-path: ellipse(50% 60% at 20% 50%); /* A simple circle or ellipse for the bottom blob */
+    z-index: 1;
+    transform: rotate(45deg); /* Optional: rotate for a more dynamic look */
+    border-radius: 20px;
+}
+
+/* Also ensure your .image container has appropriate dimensions */
+.image {
+    position: relative; /* Essential for absolute positioning of pseudo-elements */
+    /* You might need to adjust the width/height or flex properties */
+    flex: 1; /* Retain flex properties */
+    min-height: 300px; /* Ensure enough space for the blob */
+    overflow: hidden; /* Hide parts of the blob that go outside the image container */
+}
+
+/* Make sure the .image img is not circular if the source image is not */
+.image img {
+    border-radius: 0; /* Changed from 50% if you want a natural photo edge */
+    max-width: 50%; /* Adjust as needed */
+    height: 50%;
+    object-fit: contain; /* or 'cover' depending on desired crop */
+} 
+
+/* General styling for the skills section */
+.skills {
+    padding: 50px 20px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.skills h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Flexbox container for the skill boxes */
+.skills_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Individual skill box styling */
+.skill {
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 280px; /* Adjust width to accommodate icons and text */
+    height: 300px; /* Give a fixed height to make boxes equal */
+    display: flex; /* Make the skill box a flex container */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: flex-start; /* Align content to the top */
+}
+
+.skill:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.skill h6 {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Container for icon groups */
+.skill-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align icon-groups to the left */
+    width: 100%;
+    margin-left: 20px;
+}
+
+.icon-group {
+    display: flex;
+    align-items: center; /* Center icon and text vertically */
+    margin-bottom: 15px; /* Spacing between icon groups */
+}
+
+.icon-group i {
+    font-size: 2.5rem; /* Large icon size */
+    margin-right: 15px;
+    color: #333;
+    width: 40px; /* Fixed width for icons to keep alignment */
+    text-align: center;
+}
+
+.icon-group span {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 500;
+}
+.skill {
+    width: 280px;
+    background-color: #e9e9e9;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.skill:hover {
+    transform: translateY(-5px);
+}
+
+.skill h6 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.skill-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: flex-start;
+}
+
+.icon-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-group i {
+    font-size: 26px;
+    color: #000;
+}
+
+.icon-group img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+}
+
+.icon-group span {
+    font-size: 16px;
+    color: #444;
+}
+
+/* Specific icon colors */
+.fa-html5 { color: #E34F26; }
+.fa-css3-alt { color: #1572B6; }
+.fa-js { color: #F7DF1E; }
+.fa-c { color: #555; }
+.fa-python { color: #3776AB; }
+
+/* Soft skills list styling */
+.soft-skills-list {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin-top: 10px;
+    text-align: left;
+    width: 100%;
+}
+
+.soft-skills-list li {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.soft-skills-list li::before {
+    content: '•'; /* Use a custom bullet point */
+    position: absolute;
+    left: 0;
+    color: #333;
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+/* Projects Section */
+#project {
+  padding: 60px 10%;
+  background: #f8f9fa;
+  text-align: center;
+}
+
+#project h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #222;
+  font-weight: bold;
+}
+
+/* Wrapper Layout */
+.project_wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Project Card */
+.proj1 {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.proj1:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* Project Image */
+.proj1 img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+/* Project Title */
+.proj1 h6 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Project Description */
+.proj1 p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* Button Link */
+.proj1 a {
+  display: inline-block;
+  text-decoration: none;
+  background: #333;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.proj1 a:hover {
+  background: #0056b3;
+}
+.experience {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .experience h1{
+        text-align: center;
+    }
+
+    .experience::before {
+      content: '';
+      position: absolute;
+      left: 25px;
+      top: 40px;
+      bottom: 0;
+      width: 3px;
+      background: #ccc;
+    }
+
+    .exp_main {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      position: relative;
+      padding-left: 60px;
+      padding-top: 30px;
+    }
+
+    .exp1 {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .exp1::before {
+      content: '';
+      position: absolute;
+      left: -45.8px;
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      border: 3px solid #000;
+      border-radius: 50%;
+    }
+
+    .exp-content {
+      flex: 1;
+    }
+
+    .exp1 h6 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .exp1 p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #666;
+      min-width: 120px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+
+   .contact {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    box-sizing: border-box;
+    padding-top: 50px;
+}
+
+/* Title */
+.contact h1 {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Left side (info) */
+.contact_info {
+    width: 40%;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+
+.skill-icons .icon-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.skill-icons i {
+    font-size: 20px;
+    margin-right: 10px;
+    color: #000000;
+}
+
+/* Right side (form) */
+.cont_now {
+    width: 40%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-left: 10px;
+}
+
+.cont_input {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cont_input input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    width: 500px;
+}
+
+.btn_gp {
+    margin-top: 20px;
+}
+
+.btn_gp button {
+    padding: 10px 20px;
+    background-color: #1f1e1e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 500px;
+}
+
+.btn_gp button:hover {
+    background-color:  #0056b3;
+}
+
+footer{
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 20px;
+    background-color: #000;
+    color: white;
+    padding: 20px;
+}
